@@ -6,15 +6,14 @@
 cmake_minimum_required(VERSION 3.4.1)
 
 
-
-# specify the c++ standard
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
+
+# search all src files in current dir
+# aux_source_directory(. DIR_SRCS)
+# add_library(rtmp ${DIR_SRCS})
 
 
 add_library( # Sets the name of the library.
@@ -37,8 +36,10 @@ add_library( # Sets the name of the library.
              parseurl.c
              rtmp.c
              rtmp.h
-             rtmp_sys.h)
+             rtmp_sys.h
+             xiecc_rtmp.c
+             xiecc_rtmp.h)
 
-# include_directories(librtmp)
+# include_directories(.)
 
 add_definitions(-DNO_CRYPTO)

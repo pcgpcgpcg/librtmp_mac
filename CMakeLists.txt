@@ -5,11 +5,8 @@
 
 cmake_minimum_required(VERSION 3.4.1)
 
-project(librtmptest VERSION 0.1)
+project(librtmptest)
 
-# specify the c++ standard
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
@@ -21,7 +18,7 @@ include_directories(librtmp)
 
 add_definitions(-DNO_CRYPTO)
 
-add_subdirectory (librtmp)
+add_subdirectory(librtmp)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
@@ -37,7 +34,7 @@ add_subdirectory (librtmp)
 add_executable(librtmptest main.cpp)
 
 # For the static library:
-set(PROJECT_LINK_LIBS rtmp )
-link_directories( librtmp/Debug )
+# set(PROJECT_LINK_LIBS librtmp )
+# link_directories( librtmp/Debug )
 
-target_link_libraries(librtmptest librtmp)
+target_link_libraries(librtmptest rtmp)
